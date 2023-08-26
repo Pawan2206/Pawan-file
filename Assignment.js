@@ -1,4 +1,4 @@
-let num = 5;
+let num = 15;
 let fact = 0;
 for (let i=0;i<=num;i++)
 {
