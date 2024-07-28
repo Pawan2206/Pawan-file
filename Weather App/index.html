@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <style>
+      body {
+        background-color: rgba(0, 255, 255, 0.395);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1 {
+        background-color: rgba(0, 0, 255, 0.429);
+        text-align: center;
+        padding: 5px 0;
+        font-size: 1.8rem;
+        width: 100%;
+      }
+      .navbar {
+        padding: 5px 0;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 1200px;
+        margin: 20px 0;
+      }
+      .weather-input {
+        width: 40%;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .weather-input input {
+        width: 100%;
+        height: 40px;
+        outline: none;
+        padding: 0 12px;
+        margin: 10px 0;
+        font-size: 1.07rem;
+        border-radius: 4px;
+        border: 1px solid black;
+      }
+      .weather-input button :hover {
+        cursor: pointer;
+        margin: 10px 0;
+        background-color: blueviolet;
+        color: plum;
+      }
+      .weather-input .seprator {
+        text-align: left;
+        margin: 1px 0 -5px 0;
+      }
+      .weather-input .seprator::before {
+        content: "or";
+        font-size: 1rem;
+        padding: 0 50px;
+        height: 1px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+      .weather-data {
+        width: 60%;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .current-weather {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .current-weather .details {
+        margin-right: 20px;
+        text-align: left;
+      }
+      .current-weather .icon {
+        text-align: center;
+      }
+      .current-weather h2 {
+        font-size: 1.5rem;
+      }
+      .current-weather h4 {
+        font-size: 1.07rem;
+        margin: 5px 0;
+      }
+      #map {
+        width: 100%;
+        height: 400px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Weather Dashboard</h1>
+    <nav>
+      <div class="navbar">
+        <input
+          style="text-align: center"
+          id="cityInput"
+          type="text"
+          placeholder="Enter City Name"
+        />
+        <button class="search-button" onclick="searchWeather()">Search</button>
+        <button class="location-button" onclick="useCurrentLocation()">
+          Current Location
+        </button>
+        <input
+          type="radio"
+          id="weatherOption1"
+          name="weatherOption"
+          value="metric"
+          checked
+        />
+        <label for="weatherOption1">Metric; °C, m/s</label>
+        <input
+          type="radio"
+          id="weatherOption2"
+          name="weatherOption"
+          value="imperial"
+        />
+        <label for="weatherOption2">Imperial; °F, mph</label>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="weather-data">
+        <div class="current-weather">
+          <div class="details">
+            <h2 id="cityName">City Name</h2>
+            <h4 id="dateTime">Date and Time</h4>
+            <h4 id="temperature">Temperature: - °C</h4>
+            <h4 id="wind">Wind: - m/s</h4>
+            <h4 id="humidity">Humidity: - %</h4>
+            <h4 id="visibility">Visibility: - km</h4>
+          </div>
+          <div class="icon">
+            <img id="weatherIcon" src="" alt="Weather-icon" />
+            <h4 id="weatherDescription">Weather Description</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="mapouter">
+        <div class="gmap_canvas">
+          <iframe
+            width="600"
+            height="500"
+            id="gmap_canvas"
+            src="https://maps.google.com/maps?q=India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+          ></iframe
+          ><a href="https://123movies-to.org">123movies</a><br /><style>
+            .mapouter {
+              position: relative;
+              text-align: right;
+              height: 500px;
+              width: 600px;
+            }</style
+          ><a href="https://www.embedgooglemap.net">embed google map</a
+          ><style>
+            .gmap_canvas {
+              overflow: hidden;
+              background: none !important;
+              height: 500px;
+              width: 600px;
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+    <script>
+      const apiKey = "b070c841e48fda37384dff3f31b2e749";
+
+      function searchWeather() {
+        const cityInput = document.getElementById("cityInput").value;
+        fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            const cityName = document.getElementById("cityName");
+            const dateTime = document.getElementById("dateTime");
+            const temperature = document.getElementById("temperature");
+            const wind = document.getElementById("wind");
+            const humidity = document.getElementById("humidity");
+            const visibility = document.getElementById("visibility");
+            const weatherIcon = document.getElementById("weatherIcon");
+            const mapDetail = document.getElementById("gmap_canvas");
+            const weatherDescription =
+              document.getElementById("weatherDescription");
+          
+      
+
+            cityName.textContent = data.name;
+            dateTime.textContent = `Date and Time: ${new Date(
+              data.dt * 1000
+            ).toLocaleString()}`;
+            temperature.textContent = `Temperature: ${Math.round(
+              data.main.temp - 273.15
+            )} °C`;
+            wind.textContent = `Wind: ${data.wind.speed} m/s`;
+            humidity.textContent = `Humidity: ${data.main.humidity}%`;
+            visibility.textContent = `Visibility: ${data.visibility / 1000} km`;
+            weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+            mapDetail.src = `https://maps.google.com/maps?q=${cityInput}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+            weatherDescription.textContent = data.weather[0].description;
+            const map = new google.maps.Map(document.getElementById("map"), {
+              center: { lat: data.coord.lat, lng: data.coord.lon },
+              zoom: 10,
+            });
+          })
+          .catch((error) => console.error(error));
+      }
+
+      function useCurrentLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            fetch(
+              `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${AIzaSyBg7dXHZiNhxZiRiRdp_LH7zMHuJZMYoGw}`
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                const cityInput = document.getElementById("cityInput");
+                cityInput.value = data.name;
+                searchWeather();
+              })
+              .catch((error) => console.error(error));
+          });
+        } else {
+          alert("Geolocation is not supported by your browser.");
+        }
+      }
+
+      document
+        .querySelectorAll('input[name="weatherOption"]')
+        .forEach((radio) => {
+          radio.addEventListener("change", () => {
+            searchWeather();
+          });
+        });
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg7dXHZiNhxZiRiRdp_LH7zMHuJZMYoGw"
+    ></script>
+  </body>
+</html>
