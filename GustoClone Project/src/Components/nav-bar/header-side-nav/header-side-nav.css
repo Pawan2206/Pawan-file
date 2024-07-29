@@ -1,0 +1,115 @@
+.gusto-logo {
+    height: 33px
+}
+
+@media (min-width: 992px) {
+    .navbar .gusto-logo {
+        height:36px
+    }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .navbar .gusto-logo {
+        width: 100%
+    }
+}
+
+.padding-none {
+    padding: 0 !important
+}
+
+.padding-top-none {
+    padding-top: 0 !important
+}
+
+.padding-bottom-none {
+    padding-bottom: 0 !important
+}
+
+.padding-left-none {
+    padding-left: 0 !important
+}
+
+.padding-right-none {
+    padding-right: 0 !important
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.no-gutters>.col,.no-gutters>[class*="col-"] {
+    padding-right: 0;
+    padding-left: 0
+}
+.width-100 {
+    width: 100% !important
+}
+
+.align-items-center {
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+
+.navbar .menu-bar {
+    height: 60px;
+    -webkit-transition: height 350ms ease-out;
+    -o-transition: height 350ms ease-out;
+    transition: height 350ms ease-out
+}
+
+.navbar .menu-bar h2 {
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 24px;
+    letter-spacing: 0px;
+    font-size: 1.6rem;
+    font-family: "gcentra",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+@media (min-width: 1200px) {
+    .navbar .menu-bar {
+        height:75px
+    }
+
+    .navbar .signin-and-search {
+        -webkit-transform: translateX(175px);
+        -ms-transform: translateX(175px);
+        transform: translateX(175px)
+    }
+
+    .navbar.on-scroll .signin-and-search {
+        -webkit-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+        transform: translateX(0px)
+    }
+}
+
+.bg-kale-500 .container div,.bg-guava-500 .container div,.bg-next21-7c3283 .container div {
+    color: #fff
+}
+
+.margin-top{
+    margin-top: 20px;
+}
+
+.flex-grow-1 {
+    -ms-flex-positive: 1 !important;
+    flex-grow: 1 !important
+}

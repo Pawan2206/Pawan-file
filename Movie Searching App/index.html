@@ -1,137 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Search</title>
-    <style>
-      body{
-        background-color: navajowhite;
-      }
-      h1{
-        text-align: center;
-        color: indigo;
-      }
-      .search-container {
-        text-align: center;
-        margin-top: 20px;
-        font-weight: bold;
-      }
-      #searchInput {
-        text-align: center;
-        font-size: bold;
-        background-color: skyblue;
-        background: 2px solid red;
-        height: 30px;
-        width: 200px;
-      }
-      .results {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .movie-card {
-        border: 1px solid #ccc;
-        margin: 10px;
-        text-align: center;
-        width: 200px;
-        min-height: 400px;
-        display: flex;
-        flex-direction: column;
-      }
-      .movie-details {
-        text-align: left;
-        padding: 10px;
-        border: 1px solid #ccc;
-        margin-top: 10px;
-        display: none;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Movie Search</h1>
-    <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Search for a Movie..." />
-    </div>
-    <div class="results" id="results"></div>
-    <div class="movie-details" id="movieDetails"></div>
-    <script>
-      const apiKey = "bce6034a";
-      const searchInput = document.getElementById("searchInput");
-      const resultsDiv = document.getElementById("results");
-      const movieDetailsDiv = document.getElementById("movieDetails");
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Search</title>
+  <style>
+    body {
+      background-color: mediumaquamarine;
+    }
+    h1 {
+      text-align: center;
+      color: black;
+    }
+    .search-container {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    #searchInput {
+      text-align: center;
+      font-size: 16px; 
+      background-color: skyblue;
+      border: 2px solid black; 
+      height: 25px;
+      width: 200px;
+    }
+    .results {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .movie-card {
+      border: 2px solid black;
+      margin: 10px;
+      text-align: center;
+      width: 300px;
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
+    }
+    .movie-details {
+      text-align: left;
+      padding: 10px;
+      border: 1px solid black;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Movies Search App</h1>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search for a Movie..." />
+  </div>
+  <div class="results" id="results"></div>
+  <div class="movie-details" id="movieDetails"></div>
+  <script>
+    const apiKey = "bce6034a"; // Update to use environment variable if needed
+    const searchInput = document.getElementById("searchInput");
+    const resultsDiv = document.getElementById("results");
+    const movieDetailsDiv = document.getElementById("movieDetails");
 
-      async function searchMovies(query) {
-        try {
-          const response = await fetch(
-            `http://www.omdbapi.com/?apikey=${apiKey}&s=${query}`
-          );
-          const data = await response.json();
-          return data.Search;
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
+    async function searchMovies(query) {
+      try {
+        console.log('Fetching movies with query:', query);
+        const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${query}`);
+        const data = await response.json();
+        console.log('Search results:', data);
+        return data.Search;
+      } catch (error) {
+        console.error('Error fetching data:', error);
       }
+    }
 
-      async function getMovieDetails(imdbID) {
-        try {
-          const response = await fetch(
-            `http://www.omdbapi.com/?apikey=${apiKey}&i=${imdbID}`
-          );
-          const data = await response.json();
-          return data;
-        } catch (error) {
-          console.error("Error fetching movie details:", error);
-        }
+    async function getMovieDetails(imdbID) {
+      try {
+        const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${imdbID}`);
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error fetching movie details:', error);
       }
+    }
 
-      let debounceTimeout;
+    let debounceTimeout;
 
-      function handleSearch() {
-        const query = searchInput.value;
-        clearTimeout(debounceTimeout);
-        debounceTimeout = setTimeout(async () => {
-          if (query.trim() === "") {
-            resultsDiv.innerHTML = "";
-          } else {
-            const movies = await searchMovies(query);
-            if (movies) {
-              const movieList = movies
-                .map((movie) => {
-                  return `
-                                <div class="movie-card" data-imdbid="${movie.imdbID}">
-                                    <h2>${movie.Title}</h2>
-                                    <img src="${movie.Poster}" alt="${movie.Title}" style="max-width: 150px; margin: 10px auto;">
-                                </div>
-                            `;
-                })
-                .join("");
-              resultsDiv.innerHTML = movieList;
-              const movieCards = document.querySelectorAll(".movie-card");
-              movieCards.forEach((card) => {
-                card.addEventListener("click", async () => {
-                  const imdbID = card.getAttribute("data-imdbid");
-                  const movieDetails = await getMovieDetails(imdbID);
-                  if (movieDetails) {
-                    movieDetailsDiv.innerHTML = `
-                                        <h2>${movieDetails.Title}</h2>
-                                        <p>Released: ${movieDetails.Released}</p>
-                                        <p>Runtime: ${movieDetails.Runtime}</p>
-                                        <p>Genre: ${movieDetails.Genre}</p>
-                                        <p>Plot: ${movieDetails.Plot}</p>
-                                    `;
-                    movieDetailsDiv.style.display = "block";
-                  }
-                });
+    function handleSearch() {
+      const query = searchInput.value;
+      clearTimeout(debounceTimeout);
+      debounceTimeout = setTimeout(async () => {
+        if (query.trim() === "") {
+          resultsDiv.innerHTML = "";
+        } else {
+          const movies = await searchMovies(query);
+          if (movies) {
+            const movieList = movies
+              .map((movie) => {
+                return `
+                  <div class="movie-card" data-imdbid="${movie.imdbID}">
+                    <h2>${movie.Title}</h2>
+                    <img src="${movie.Poster}" alt="${movie.Title}" style="max-width: 150px; margin: 10px auto;">
+                  </div>
+                `;
+              })
+              .join("");
+            resultsDiv.innerHTML = movieList;
+            const movieCards = document.querySelectorAll(".movie-card");
+            movieCards.forEach((card) => {
+              card.addEventListener("click", async () => {
+                const imdbID = card.getAttribute("data-imdbid");
+                const movieDetails = await getMovieDetails(imdbID);
+                if (movieDetails) {
+                  movieDetailsDiv.innerHTML = `
+                    <h2>${movieDetails.Title}</h2>
+                    <p>Released: ${movieDetails.Released}</p>
+                    <p>Runtime: ${movieDetails.Runtime}</p>
+                    <p>Genre: ${movieDetails.Genre}</p>
+                    <p>Plot: ${movieDetails.Plot}</p>
+                  `;
+                  movieDetailsDiv.style.display = "block";
+                }
               });
-            } else {
-              resultsDiv.innerHTML = "No results found";
-            }
+            });
+          } else {
+            resultsDiv.innerHTML = "No results found";
           }
-        }, 100);
-      }
+        }
+      }, 300); // Increased debounce delay to 300ms
+    }
 
-      searchInput.addEventListener("input", handleSearch);
-    </script>
-  </body>
+    searchInput.addEventListener("input", handleSearch);
+  </script>
+</body>
 </html>

@@ -1,0 +1,12 @@
+.padding-top-10px {
+    padding-top: 10px !important
+}
+
+.padding-bottom-10px {
+    padding-bottom: 10px !important
+}
+
+.justify-content-center {
+    -ms-flex-pack: center !important;
+    justify-content: center !important
+}
