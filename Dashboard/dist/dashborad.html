@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="flex flex-col md:flex-row relative">
+        <div id="sidebar"
+            class="bg-[#9B76D6] text-white w-full md:w-1/4 lg:w-1/6 p-4 md:p-6 hidden md:block transition-transform transform -translate-x-full md:translate-x-0 md:relative top-0 h-full z-50 ">
+            <button class="md:hidden p-2 m-2 text-white bg-transparent rounded top-0 float-right " onclick="closeNav()">
+                <svg id="closeIcon" class="w-10 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"
+                        fill="white">
+                    </path>
+                </svg>
+            </button>
+            <div class="text-2xl md:text-3xl font-bold text-[#BEFB7A]">
+                <span>Ditch</span><br>
+                <span class="ml-2 md:ml-5 mt-0">Dollar<sup class="text-sm md:text-base">®</sup></span>
+            </div>
+            <div class="mb-8 md:mb-40 mt-4 md:mt-0">
+                <ul>
+                    <li
+                        class="p-3 hover:text-[#BEFB7A] hover:border-r-4 hover:border-[#BEFB7A] cursor-pointer flex items-center space-x-3">
+                        <img src="./images/dashboard-icon.svg" alt="dashboard">
+                        <span>Dashboard</span>
+                    </li>
+                    <li
+                        class="p-3 hover:text-[#BEFB7A] hover:border-r-4 hover:border-[#BEFB7A] cursor-pointer flex items-center space-x-3">
+                        <img src="./images/crm-icon.svg" alt="crm">
+
+                        <span>CRM</span>
+                    </li>
+                    <li
+                        class="p-3 hover:text-[#BEFB7A] hover:border-r-4 hover:border-[#BEFB7A] cursor-pointer flex items-center space-x-3">
+
+                        <img src="./images/mam-icon.svg" alt="mam">
+                        <span>MAM</span>
+                    </li>
+                    <li
+                        class="p-3 hover:text-[#BEFB7A] hover:border-r-4 hover:border-[#BEFB7A] cursor-pointer flex items-center space-x-3">
+
+                        <img src="./images/pamm-icon.svg" alt="pamm">
+                        <span>PAMM</span>
+                    </li>
+                    <li
+                        class="p-3 hover:text-[#BEFB7A] hover:border-r-4 hover:border-[#BEFB7A] cursor-pointer flex items-center space-x-3">
+
+                        <img src="./images/trades.svg" alt="trades">
+                        <span>Trade</span>
+                    </li>
+                    <li
+                        class="p-3 hover:text-[#BEFB7A] hover:border-r-4 hover:border-[#BEFB7A] cursor-pointer flex items-center space-x-3">
+                        <img src="./images/wallet.svg" alt="wallet">
+
+                        <span>Wallet</span>
+                    </li>
+                    <li
+                        class="p-3 hover:text-[#BEFB7A] hover:border-r-4 hover:border-[#BEFB7A] cursor-pointer flex items-center space-x-3">
+                        <img src="./images/account.svg" alt="account">
+
+                        <span>Accounts</span>
+                    </li>
+                    <li
+                        class="p-3 hover:text-[#BEFB7A] hover:border-r-4 hover:border-[#BEFB7A] cursor-pointer flex items-center space-x-3">
+                        <img src="./images/history-icon.svg" alt="history">
+
+                        <span>History</span>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="mt-auto">
+                <ul>
+                    <li
+                        class="p-3 hover:text-[#BEFB7A] hover:border-r-4 hover:border-[#BEFB7A] cursor-pointer flex items-center space-x-3">
+                        <img src="./images/notification-icon.svg" alt="notification">
+                        <span>Notifications</span>
+                    </li>
+                    <li
+                        class="p-3 hover:text-[#BEFB7A] hover:border-r-4 hover:border-[#BEFB7A] cursor-pointer flex items-center space-x-3">
+                        <img src="./images/setting-icon.svg" alt="setting">
+
+                        <span>Settings</span>
+                    </li>
+                    <li
+                        class="p-3 hover:text-[#BEFB7A] hover:border-r-4 hover:border-[#BEFB7A] cursor-pointer flex items-center space-x-3">
+                        <img src="./images/support.svg" alt="help & support">
+                        <span>Help & Support</span>
+                    </li>
+                    <li
+                        class="p-3 hover:text-[#BEFB7A] hover:border-r-4 hover:border-[#BEFB7A] cursor-pointer flex items-center space-x-3">
+                        <img src="./images/logout.svg" alt="logout">
+
+                        <span>Log Out</span>
+                    </li>
+                    <hr>
+                    <li class="p-3 cursor-pointer flex items-center space-x-3 ">
+                        <img src="./images/user.svg" alt="user">
+                        <span>Shyam Shakur<br>shyam01.shankur@mail.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex flex-col w-full md:w-3/4 lg:w-4/5">
+            <!-- Dashboard Header -->
+            <div class="flex h-12 justify-between items-center p-2 bg-[#FCFCFD] shadow-md top-0 sticky">
+                <button id="sidebarToggle" class="md:hidden p-2 m-2 text-white bg-[#9B76D6] rounded">
+                    <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+                <h3 class="text-lg md:text-xl font-bold text-[#344054]">Dashboard</h3>
+                <div class="flex items-center space-x-2">
+                    <div class="relative w-full max-w-xs">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                            <img src="./images/search-icon.svg" alt="search">
+                        </div>
+                        <input type="search" id="default-search"
+                            class="block w-full p-2.5 pl-10  border text-sm  rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9B76D6]"
+                            placeholder="Search..." />
+                        <!-- md:w-1/4 lg:w-1/3 xl:w-1/4 -->
+                    </div>
+                    <div class="text-gray-300 flex items-center">
+                        <img src="./images/notificaation.svg" alt="notification">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="flex flex-col lg:flex-row mt-1">
+                <!-- Quick Links -->
+                <div class="w-full lg:w-2/3 p-4">
+                    <div class="bg-[#FFFFFF] p-4 rounded-md shadow-md border-2 border-solid border-[#F2F4F7]">
+                        <h3 class="text-lg font-semibold mb-2">Quick Links</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+                            <!-- Repeat this div for each Quick Link -->
+                            <div
+                                class="flex flex-col items-center bg-[#FCFCFD] hover:cursor-pointer px-4 py-2 rounded-md border border-solid border-[#EAECF0]">
+                                <img src="./images/deposit.svg" alt="deposit">
+                                <span class="text-sm md:text-base">Deposit</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center flex-col bg-[#FCFCFD] hover:cursor-pointer px-4 py-2 rounded-md border border-solid border-[#EAECF0]">
+                                <img src="./images/withdraw.svg" alt="withdraw">
+                                <span class="text-sm md:text-base">Withdraw</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center flex-col bg-[#FCFCFD] hover:cursor-pointer px-4 py-2 rounded-md border border-solid border-[#EAECF0]">
+
+                                <img src="./images/settting.svg" alt="setting">
+
+                                <span class="text-sm md:text-base">Settings</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center flex-col bg-[#FCFCFD] hover:cursor-pointer px-4 py-2 rounded-md border border-solid border-[#EAECF0]">
+                                <img src="./images/verification.svg" alt="verification">
+
+                                <span class="text-sm md:text-base">Verification</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center flex-col bg-[#FCFCFD] hover:cursor-pointer px-4 py-2 rounded-md border border-solid border-[#EAECF0]">
+                                <img src="./images/bonus.svg" alt="bonuses">
+                                <span class="text-sm md:text-base">Bonuses</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center flex-col bg-[#FCFCFD] hover:cursor-pointer px-4 py-2 rounded-md border border-solid border-[#EAECF0]">
+                                <img src="./images/mts.svg" alt="mts">
+                                <span class="text-sm md:text-base">MT5</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center flex-col bg-[#FCFCFD] hover:cursor-pointer px-4 py-2 rounded-md border border-solid border-[#EAECF0]">
+                                <img src="./images/transfer.svg" alt="transfer">
+                                <span class="text-sm md:text-base">Transfer</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center flex-col bg-[#FCFCFD] hover:cursor-pointer px-4 py-2 rounded-md border border-solid border-[#EAECF0]">
+                                <img src="./images/history.svg" alt="history">
+
+                                <span class="text-sm md:text-base">History</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center flex-col bg-[#FCFCFD] hover:cursor-pointer px-4 py-2 rounded-md border border-solid border-[#EAECF0]">
+                                <img src="./images/partner.svg" alt="partner">
+
+                                <span class="text-sm md:text-base">Partner</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center flex-col bg-[#FCFCFD] hover:cursor-pointer px-4 py-2 rounded-md border border-solid border-[#EAECF0]">
+
+                                <img src="./images/exchange.svg" alt="exchange">
+
+                                <span class="text-sm md:text-base">Exchange</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center flex-col bg-[#FCFCFD] hover:cursor-pointer px-4 py-2 rounded-md border border-solid border-[#EAECF0]">
+                                <img src="./images/analytics.svg" alt="analytics">
+
+                                <span class="text-sm md:text-base">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Overview -->
+                    <div class="mt-4 bg-white p-4 rounded-md shadow-md">
+                        <span class="text-lg font-semibold mb-2">Overview</span>
+                        <button class="float-right text-[#AD8EDD] hover:cursor-pointer">Download Report</button>
+                        <span class="float-right mr-3 mt-1 hover:cursor-pointer">
+                            <img src="./images/download-report.svg" alt="Download-report" width="18" height="18">
+                        </span>
+                        <div class="flex items-center mb-4">
+                            <button
+                                class="hover:bg-[#F1EBF9] hover:text-black px-4 py-2 rounded-md text-[#98A2B3]">Monthly</button>
+                            <button class="bg-[#F1EBF9] hover:cursor-pointer px-4 py-2 rounded-md ml-2">Yearly</button>
+                        </div>
+                        <canvas id="chart" class="w-full h-60"></canvas>
+                    </div>
+                </div>
+
+                <!-- Trading Accounts -->
+                <div class="w-full lg:w-1/3 p-4">
+                    <div class="bg-[#FFFFFF] p-4 rounded-md shadow-md border-2 border-solid border-[#F2F4F7]">
+                        <h3 class="text-lg font-semibold mb-2">Trading Accounts</h3>
+                        <!-- Repeat this div for each Trading Account -->
+                        <div class="bg-[#FCFCFD] p-4 rounded-md mb-4 border border-solid border-[#EAECF0]">
+                            <h4 class="text-base font-semibold mb-3">Master Account</h4>
+                            <span
+                                class="bg-[#F2F4F7] text-[#344054] font-medium py-2 px-4 rounded-md hover:cursor-pointer">CTrader</span>
+                            <span class="ml-2 text-[#667085]">#273728</span>
+                            <div class="mt-2 flex justify-between items-center">
+                                <span class="text-2xl font-bold">0.00</span>
+                                <span class="text-base ml-2 flex-1">USD</span>
+                                <img src="./images/up-arrow.svg" alt="up-arrow-icon">
+                            </div>
+                        </div>
+                        <div class="bg-[#FCFCFD] p-4 rounded-md mb-4 border border-solid border-[#EAECF0]">
+                            <h4 class="text-base font-semibold mb-3">Master Account</h4>
+                            <span
+                                class="bg-[#F2F4F7] text-[#344054]  font-medium py-2 px-4 rounded-md hover:cursor-pointer">CTrader</span>
+                            <span class="ml-2 text-[#667085]">#273728</span>
+                            <div class="mt-2 flex justify-between items-center">
+                                <span class="text-2xl font-bold">0.00</span>
+                                <span class="text-base ml-2 flex-1">USD</span>
+
+                                <img src="./images/up-arrow.svg" alt="up-arrow-icon">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Open Trades -->
+                    <div class="mt-4 bg-[#FFFFFF] p-4 rounded-md shadow-md border-2 border-solid border-[#F2F4F7]">
+                        <h3 class="text-lg font-semibold mb-2">Open Trades</h3>
+                        <div class="bg-[#FCFCFD] p-4 rounded-md mb-4 border border-solid border-[#EAECF0]">
+                            <span class="text-sm text-[#667085]">GBPUSD</span>
+                            <span class="bg-[#EBFFEE] rounded-md ml-3">Long</span>
+                            <span class="ml-2 text-[#667085] float-right">0.12</span>
+                            <div class="mt-2 flex justify-between items-center">
+                                <span class="text-xl font-bold text-[#14AE5C]">+56.00</span>
+                                <span class="text-sm ml-1 flex-1">USD</span>
+                            </div>
+                        </div>
+                        <div class="bg-[#FCFCFD] p-4 rounded-md mb-4 border border-solid border-[#EAECF0]">
+                            <span class="text-sm text-[#667085]">USDJPY </span>
+                            <span class="bg-[#EBFFEE] rounded-md ml-3">Long</span>
+                            <span class="ml-2 text-[#667085] float-right">0.52</span>
+
+                            <div class="mt-2 flex justify-between items-center">
+                                <span class="text-xl font-bold text-[#EC221F]">-0.09</span>
+                                <span class="text-sm ml-1 flex-1">USD</span>
+                            </div>
+
+
+                        </div>
+                        <div class="bg-[#FCFCFD] p-4 rounded-md mb-4 border border-solid border-[#EAECF0]">
+                            <span class="text-sm text-[#667085]">EURUSD </span>
+                            <span class="bg-[#FEE9E7] rounded-md ml-3">Short</span>
+                            <span class="ml-2 text-[#667085] float-right">0.34</span>
+
+                            <div class="mt-2 flex justify-between items-center">
+                                <span class="text-xl font-bold text-[#EC221F]">-1.09</span>
+                                <span class="text-sm ml-1 flex-1">USD</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            document.getElementById('sidebarToggle').addEventListener('click', function () {
+                const sidebar = document.getElementById('sidebar');
+                const menuIcon = document.getElementById('menuIcon');
+                const closeIcon = document.getElementById('closeIcon');
+
+                // Toggle the visibility of the sidebar
+                sidebar.classList.toggle('hidden');
+                sidebar.classList.toggle('-translate-x-full');
+
+                // Toggle the icons
+                menuIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+            function closeNav() {
+                const sidebar = document.getElementById('sidebar');
+                const menuIcon = document.getElementById('menuIcon');
+                const closeIcon = document.getElementById('closeIcon');
+
+                // Toggle the visibility of the sidebar
+                sidebar.classList.toggle('hidden');
+                sidebar.classList.toggle('-translate-x-full');
+
+                // Toggle the icons
+                menuIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+
+            }
+
+            const ctx = document.getElementById('chart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Aug', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Profit',
+                        data: [700, 400, 1000, 200, 1200, 600, 700, 300, 1100, 500, 600, 100, 300],
+                        backgroundColor: '#AD8EDD',
+                        borderRadius: 4.8
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false // Hides x-axis grid lines
+                            }
+                        },
+                        y: {
+                            grid: {
+                                display: false // Hides x-axis grid lines
+                            },
+                            ticks: {
+                                callback: function (value, index, ticks) {
+                                    return value != 0 ? '$' + value.toLocaleString() : value.toLocaleString();
+                                },
+                                color: '#98A2B3',
+                                maxTicksLimit: 10,
+                                stepSize: 250,
+                            },
+                        },
+                    }
+                }
+            });
+        </script>
+</body>
+
+</html>
