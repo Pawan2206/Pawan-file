@@ -1,0 +1,78 @@
+{
+  "layouts": [
+    {
+      "id": "9396",
+      "layout": [
+        "label",
+        "input",
+        "checkbox",
+        "button"
+      ],
+      "name": ""
+    },
+    {
+      "id": "ba06",
+      "layout": [
+        "label",
+        "input",
+        "checkbox",
+        "button"
+      ],
+      "name": ""
+    },
+    {
+      "id": "cf0e",
+      "layout": [
+        "label",
+        "input",
+        "checkbox",
+        "button"
+      ],
+      "name": "ram"
+    },
+    {
+      "id": "93c3",
+      "layout": [
+        "label",
+        "input",
+        "checkbox",
+        "button",
+        "table"
+      ],
+      "name": "ram"
+    },
+    {
+      "id": "45f1",
+      "layout": [],
+      "name": ""
+    },
+    {
+      "id": "93a1",
+      "layout": [],
+      "name": ""
+    },
+    {
+      "id": "3ac8",
+      "layout": [
+        "label",
+        "input",
+        "age",
+        "input",
+        "is working",
+        "checkbox",
+        "button"
+      ],
+      "name": ""
+    },
+    {
+      "id": "2d75",
+      "layout": [
+        "label",
+        "input",
+        "checkbox",
+        "button"
+      ],
+      "name": ""
+    }
+  ]
+}

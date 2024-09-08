@@ -1,0 +1,127 @@
+/* Header styling */
+.header {
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #4a90e2;
+  color: white;
+  position: relative;
+  font-size: 18px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* LayoutControls input and buttons styling */
+.controls-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Input field for layout name */
+.controls-container input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 20px;
+}
+
+/* Buttons for Save, Load, and Publish */
+.controls-container button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controls-container button:hover {
+  background-color: #0056b3;
+}
+
+/* General container for content */
+.content {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 60px);
+  background-color: #f0f2f5;
+}
+
+/* Left and Right panel styling */
+.left-panel {
+  width: 30%;
+  background-color: #f8f9fa;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.right-panel {
+  width: 70%;
+  padding: 20px;
+  background-color: #e9ecef;
+  overflow-y: auto;
+}
+
+/* Styling for draggable items */
+.draggable-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  transition: transform 0.2s;
+}
+
+.draggable-item:hover {
+  transform: scale(1.05);
+}
+
+/* Make the layout responsive */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .left-panel, .right-panel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .controls-container input, 
+  .controls-container button {
+    font-size: 14px;
+  }
+
+  .draggable-item {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  .controls-container input, 
+  .controls-container button {
+    font-size: 12px;
+  }
+
+  .draggable-item {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+}
