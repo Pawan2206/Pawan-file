@@ -1,0 +1,251 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+header {
+    width: 100%;
+    background-color: #232f3e; 
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2.0rem;
+    margin-bottom: 20px;
+    color: #232f3e; 
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    box-sizing: border-box;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.product:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.product h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.product p {
+    color: #555;
+}
+
+.add-to-cart-btn {
+    width: 150px;
+    padding: 10px 20px;
+    background-color: #ff9900; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #ca861f; 
+}
+
+
+.cart {
+    display: flex;
+    flex-direction: column; 
+    margin-top: 40px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.cart-items {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+}
+
+.cart-item {
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    flex: 1 1 calc(33.333% - 20px); 
+    box-sizing: border-box; 
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.cart-item div {
+    flex: 1; 
+}
+
+.cart-item .remove-from-cart-btn {
+    width: 100px;
+    height: 40px;
+    margin-left: auto; 
+    background-color: #ff9900; 
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item .remove-from-cart-btn:hover {
+    background-color: #ca861f;
+}
+
+.cart-items div {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.cart-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+#discount-code {
+    padding: 5px;
+    padding-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    height: 30px;
+    font-size: medium;
+}
+
+#apply-discount-btn {
+    padding: 5px 10px;
+    background-color: #ff9900; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 207px;
+    height: 50px;
+    transition: background-color 0.3s ease;
+}
+
+#apply-discount-btn:hover {
+    background-color: #ca861f;
+}
+
+#currency-selector {
+    margin-top: 10px;
+    width: 207px;
+    height: 35px;
+}
+
+#checkout-btn {
+    margin-top: 10px;
+    width: 207px;
+    height: 35px;  
+    background-color: #ff9900; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#checkout-btn:hover {
+    background-color: #ca861f;
+}
+
+#total-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product {
+        width: 45%;
+    }
+
+    .cart-summary {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #discount-code {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #apply-discount-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .product {
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini E-Commerce Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Mini E-Commerce Cart</h1>
+    </header>
+    <div class="container">
+        <!-- Product List -->
+        <h2>Products</h2>
+        <div class="product-list">
+            <!-- Product 1: Laptop -->
+            <div class="product" data-id="P001" data-price="1000">
+                <img src="https://cdn.pixabay.com/photo/2016/03/27/07/12/apple-1282241_640.jpg" alt="Laptop">
+                <h3>Laptop</h3>
+                <p>Price: $1000</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Product 2: Phone -->
+            <div class="product" data-id="P002" data-price="600">
+                <img src="https://cdn.pixabay.com/photo/2017/04/03/15/52/mobile-phone-2198770_640.png" alt="Phone">
+                <h3>Phone</h3>
+                <p>Price: $600</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Product 3: Headphones -->
+            <div class="product" data-id="P003" data-price="300">
+                <img src="https://cdn.pixabay.com/photo/2013/07/13/12/17/headphone-159569_640.png" alt="Headphones">
+                <h3>Headphones</h3>
+                <p>Price: $300</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Product 4: Camera -->
+            <div class="product" data-id="P004" data-price="450">
+                <img src="https://cdn.pixabay.com/photo/2014/08/29/14/53/camera-431119_640.jpg" alt="Camera">
+                <h3>Camera</h3>
+                <p>Price: $450</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Product 5: Smartwatch -->
+            <div class="product" data-id="P005" data-price="250">
+                <img src="https://cdn.pixabay.com/photo/2016/09/10/21/54/watch-1660232_640.jpg" alt="Smartwatch">
+                <h3>Smartwatch</h3>
+                <p>Price: $250</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Product 6: Tablet -->
+            <div class="product" data-id="P006" data-price="400">
+                <img src="https://cdn.pixabay.com/photo/2013/09/22/09/15/tablet-184888_640.jpg" alt="Tablet">
+                <h3>Tablet</h3>
+                <p>Price: $400</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Product 7: Bluetooth Speaker -->
+            <div class="product" data-id="P007" data-price="150">
+                <img src="https://cdn.pixabay.com/photo/2019/04/07/09/41/speakers-4109274_640.jpg"
+                    alt="Bluetooth Speaker">
+                <h3>Bluetooth Speaker</h3>
+                <p>Price: $150</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Product 8: Monitor -->
+            <div class="product" data-id="P008" data-price="300">
+                <img src="https://cdn.pixabay.com/photo/2013/07/13/01/08/monitor-155158_640.png" alt="Monitor">
+                <h3>Monitor</h3>
+                <p>Price: $300</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Product 9: Printer -->
+            <div class="product" data-id="P009" data-price="200">
+                <img src="https://cdn.pixabay.com/photo/2016/07/14/11/11/printer-1516578_640.jpg" alt="Printer">
+                <h3>Printer</h3>
+                <p>Price: $200</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        <!-- Cart Section -->
+        <div class="cart">
+            <h2>Shopping Cart</h2>
+            <div class="cart-items">
+            </div>
+            <div class="cart-summary">
+                <h2>Total: <span id="total-price">$0.00</span></h2>
+                <input type="text" id="discount-code" placeholder="Enter discount code">
+                <button id="apply-discount-btn">Apply Discount</button>
+                <select id="currency-selector">
+                    <option value="USD">USD</option>
+                    <option value="INR">INR</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                </select>
+                <button id="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
